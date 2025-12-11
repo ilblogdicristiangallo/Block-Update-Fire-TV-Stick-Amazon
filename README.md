@@ -29,7 +29,7 @@ Paste:
 Press CTRL + C and write :wq! (Save)
 <pre>vi /etc/rc.local</pre>
 Paste:
-<pre>*/30 * * * * /etc/firetv-block.sh >> /var/log/firetv_cron.log 2>&1</pre>
+<pre>*/30 * * * * /etc/firetv-stick-block.sh >> /var/log/firetv_cron.log 2>&1</pre>
 Save and exit (Press CTRL + C and :wq!
 
 # 🔍 How it works
