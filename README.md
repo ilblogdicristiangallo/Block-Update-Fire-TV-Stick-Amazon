@@ -46,3 +46,5 @@ Finally, it restarts dnsmasq and reloads the firewall → the block becomes imme
 
 # Fire TV firmware updates → blocked, Amazon telemetry → blocked, DNS over HTTPS (Google, Cloudflare, Quad9) → blocked, Appstore and streaming (Prime, Netflix, etc.) → still working and Detailed log → available for analysis and to discover new domains/IPs to block
 
+# Visit my blog:
+https://www.ilblogdicristiangallo.com
