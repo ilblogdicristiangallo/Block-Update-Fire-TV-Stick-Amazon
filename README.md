@@ -1,7 +1,7 @@
 # Block-Update-Fire-TV-Stick-Amazon
 A script for OpenWrt that blocks Fire TV Stick OTA updates and telemetry using dnsmasq and ipset. It prevents system updates, logs attempts with tcpdump, and dynamically updates the blacklist via parser. Compatible with OpenWrt 21.02+.
 
-# firetv-block.sh
+# firetv-stick-block.sh
 
 A script for OpenWrt that permanently blocks OTA updates and telemetry from the Fire TV Stick.  
 It uses **dnsmasq** and **ipset** to filter known domains and IPs, preventing system updates and data collection.  
@@ -23,9 +23,14 @@ opkg install ipset tcpdump dnsmasq</pre>
 
 # Installation with putty
 
-<pre>vi /etc/firetv-block.sh</pre>
+<pre>vi /etc/firetv-stick-block.sh</pre>
 Paste:
-<pre>/etc/firetv-block.sh</pre>
+<pre>/etc/firetv-stick-block.sh</pre>
+Press CTRL + C and write :wq! (Save)
+<pre>vi /etc/rc.local</pre>
+Paste:
+<pre>*/30 * * * * /etc/firetv-block.sh >> /var/log/firetv_cron.log 2>&1</pre>
+Save and exit (Press CTRL + C and :wq!
 
 # 🔍 How it works
 
@@ -39,8 +44,5 @@ It adds it to dnsmasq (for domains).
 It adds it to ipset (for IPs).
 Finally, it restarts dnsmasq and reloads the firewall → the block becomes immediately active.
 
-# Fire TV firmware updates → blocked
-# Amazon telemetry → blocked
-# DNS over HTTPS (Google, Cloudflare, Quad9) → blocked
-# Appstore and streaming (Prime, Netflix, etc.) → still working
-# Detailed log → available for analysis and to discover new domains/IPs to block
+# Fire TV firmware updates → blocked, Amazon telemetry → blocked, DNS over HTTPS (Google, Cloudflare, Quad9) → blocked, Appstore and streaming (Prime, Netflix, etc.) → still working and Detailed log → available for analysis and to discover new domains/IPs to block
+
